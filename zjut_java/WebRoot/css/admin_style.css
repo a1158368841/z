@@ -1,0 +1,151 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+    background:#fff;color:#333;font-size:12px; margin-top:5px;font-family:"SimSun";
+}
+body,h1,h2,h3,h4,h5,h6,ul,ol,li,form,p,dl,dt,dd,table,th,td,img,blockquote{margin:0;padding:0;border:0}
+ul,ol{
+    list-style-type:none;
+}
+
+a{text-decoration:none;}
+a:link{color:#009;}
+a:visited{color:#800080;}
+a:hover,a:active,a:focus{color:#c00;text-decoration:underline;} 
+
+
+.container {
+	width: 800px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.left_bar {
+	width: 200px;
+	float: left;
+	background-color: #DBD2FF;
+}
+.admin_head {
+	background-color: #9B9BFF;
+	height: 160px;
+	width: 800px;
+}
+.head_img {
+	padding-top: 10px;
+	margin-bottom: 0px;
+	height: 120px;
+	width: 400px;
+}
+.right_content {
+	float: right;
+	height: 400px;
+	width: 580px;
+	background-color: #DBD2FF;
+}
+.left_bar ul li {
+	line-height: 40px;
+	font-size: 24px;
+}
+.left_bar ul li ul li {
+	line-height: 20px;
+	font-size: 14px;
+}
+.left_bar ul li ul {
+	display: none;
+}
+.left_bar ul li:hover ul {
+	display: block;
+}
+.admin_bt li {
+	float: left;
+	width: 60px;
+	height: 60px;
+	margin-left: 40px;
+	display: block;
+	text-align: center;
+	background-color: #FCF;
+	border: 1px solid #000;
+	line-height: 60px;
+	font-size: 20px;
+}
+.library_container {
+	height: 400px;
+	width: 580px;
+}
+.library_tb {
+	width: 480px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+}
+.detail_dd {
+	position: absolute;
+	left: 0px;
+	width: 75px;
+	text-align: right;
+	top: 13px;
+	font-size: 14px;
+}
+.detail_dl {
+	position: relative;
+	top: -20px;
+
+}
+.detail_dt {
+	position: relative;
+	padding-left: 85px;
+	padding-top: 8px;
+	padding-right: 0px;
+	padding-bottom: 8px;
+}
+.library_detail_tb {
+	height: 340px;
+	width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+	font-size: 14px;
+	text-align: right;
+}
+.normal_bt {
+	height: 30px;
+	width: 100px;
+	background-color: #09F;
+	font-size: 20px;
+	color: #FFF;
+	margin-left: 5px;
+}
+.library_dt {
+	position: absolute;
+	text-align: right;
+	width: 80px;
+	left: 140px;
+	top: 8px;
+	font-size: 14px;
+}
+.library_dd {
+	position: relative;
+	padding-left: 230px;
+	padding-top: 8px;
+	padding-right: 0px;
+	padding-bottom: 8px;
+}
+.library_dl {
+	position: relative;
+}
+#show_chart {
+	height: 295px;
+}
+#show_table {
+	height: 295px;
+}
+.left_menu dt {
+	line-height: 28px;
+	height: 29px;
+	padding-left: 20px;
+	font-weight: bold;
+}
+.left_menu dd {
+	line-height: 28px;
+	height: 28px;
+	padding-left: 20px;
+}
+

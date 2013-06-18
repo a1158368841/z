@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table name="ctcityavg" catalog="zjut_java">
+		<primary-key>
+			<key-column name="city" />
+		</primary-key>
+	</table>
+	<table name="ctproavg" catalog="zjut_java">
+		<primary-key>
+			<key-column name="province" />
+		</primary-key>
+	</table>
+	<table name="ctunivavg" catalog="zjut_java">
+		<primary-key>
+			<key-column name="univname" />
+		</primary-key>
+	</table>
+	<table name="ctquestions" catalog="zjut_java">
+		<primary-key>
+			<key-column name="questionid" />
+		</primary-key>
+	</table>
+	<table name="tbtestdetails" catalog="zjut_java">
+		<primary-key>
+			<key-column name="QuestionIndex" />
+			<key-column name="TestID" />
+		</primary-key>
+	</table>
+<table name="ctdetail" catalog="zjut_java">
+	<primary-key>
+		<key-column name="testid" />
+	</primary-key>
+</table>
+</hibernate-reverse-engineering>

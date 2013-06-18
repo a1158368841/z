@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+<include file="com/zjut_java/action/user.xml"></include>
+
+
+<package name="default" namespace="/" extends="struts-default">
+	<action name="download" class="action.DownloadAction">
+		<result type="stream">
+			<param name="contentType">application/octet-stream</param>
+			<param name="inputName">inputStream</param>
+			<param name="contentDisposition">attachment;filename="${fileName}"</param>
+			<param name="bufferSize">4096</param>
+		</result>
+
+	</action>
+
+	<action name="login" class="userAction" method="login">
+		<result name="fail">login.jsp</result>
+		<result name="normal">/WEB-INF/jsp/user/outer/outer_index.jsp</result>
+	</action>
+	
+	
+	
+	<action name="univ_*" class="universityAction" method="{1}">
+	</action>
+	
+		<!-- 查找学校 -->
+	<action name="findprovinces" class="universityAction" method="findProvinces">
+	</action>
+	<action name="findcities" class="universityAction" method="findCities">
+	</action>
+	<action name="findunivs" class="universityAction" method="findUnivs">
+	</action>
+</package>
+	
+</struts>    

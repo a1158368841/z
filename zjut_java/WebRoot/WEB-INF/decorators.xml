@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<decorators defaultdir="/WEB-INF/jsp/decorators">
+	<decorator name="home" page="home.jsp">
+		<pattern>/admin/*</pattern>
+	</decorator>
+
+	<decorator name="user_outer" page="user_outer.jsp">
+		<pattern>/outer/*</pattern>
+	</decorator>
+	
+	<decorator name="user_inner" page="user_inner.jsp">
+		<pattern>/inner/*</pattern>
+	</decorator>
+	
+</decorators>

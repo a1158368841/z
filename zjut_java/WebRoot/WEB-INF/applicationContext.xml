@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/zjut_java">
+		</property>
+		<property name="username" value="root"></property>
+		<property name="password" value="root"></property>
+		
+	</bean>
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				 <prop key="hibernate.format_sql">true</prop>
+   				 <prop key="hibernate.show_sql">true</prop> 
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/zjut_java/model/Tbfunction.hbm.xml</value>
+				<value>com/zjut_java/model/Tbppt.hbm.xml</value>
+				<value>com/zjut_java/model/Tbsystemlog.hbm.xml</value>
+				<value>com/zjut_java/model/Tbtest.hbm.xml</value>
+				<value>com/zjut_java/model/Tbtestdeploy.hbm.xml</value>
+				<value>com/zjut_java/model/Tbtestdetails.hbm.xml</value>
+				<value>com/zjut_java/model/Tbtestlibrary.hbm.xml</value>
+				<value>com/zjut_java/model/Tbuniversity.hbm.xml</value>
+				<value>com/zjut_java/model/Tbuserhabit.hbm.xml</value>
+				<value>com/zjut_java/model/Tbusers.hbm.xml</value>
+				<value>
+					com/zjut_java/charts/model/Ctfunction.hbm.xml
+				</value>
+				<value>
+					com/zjut_java/charts/model/Ctdetail.hbm.xml
+				</value>
+				<value>
+					com/zjut_java/charts/model/Ctcityavg.hbm.xml
+				</value>
+				<value>
+					com/zjut_java/charts/model/Ctproavg.hbm.xml
+				</value>
+				<value>
+					com/zjut_java/charts/model/Ctunivavg.hbm.xml
+				</value>
+				<value>
+					com/zjut_java/charts/model/Ctquestions.hbm.xml
+				</value></list>
+		</property>
+		
+  
+  </bean>
+	<bean id="TbfunctionDAO"
+		class="com.zjut_java.dao.TbfunctionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TbpptDAO" class="com.zjut_java.dao.TbpptDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TbsystemlogDAO"
+		class="com.zjut_java.dao.TbsystemlogDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TbtestDAO" class="com.zjut_java.dao.TbtestDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TbtestdeployDAO"
+		class="com.zjut_java.dao.TbtestdeployDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TbtestdetailsDAO"
+		class="com.zjut_java.dao.TbtestdetailsDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TbtestlibraryDAO"
+		class="com.zjut_java.dao.TbtestlibraryDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TbuniversityDAO"
+		class="com.zjut_java.dao.TbuniversityDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TbuserhabitDAO"
+		class="com.zjut_java.dao.TbuserhabitDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TbusersDAO" class="com.zjut_java.dao.TbusersDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 视图所用dao -->
+	<bean id="CtdetailDAO"
+		class="com.zjut_java.charts.dao.CtdetailDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="CtcityavgDAO"
+		class="com.zjut_java.charts.dao.CtcityavgDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="CtproavgDAO"
+		class="com.zjut_java.charts.dao.CtproavgDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="CtunivavgDAO"
+		class="com.zjut_java.charts.dao.CtunivavgDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	<!-- user -->
+	<bean id="tbuser" class="com.zjut_java.model.Tbusers">
+	</bean>
+	
+	<bean id="userServiceImpl" class="com.zjut_java.service.Impl.UserServiceImpl" >
+		<property name="tbusersDAO">
+			<ref bean="TbusersDAO"/>
+		</property>
+	</bean>
+	
+	<bean id="userAction" class="com.zjut_java.action.UserAction" scope="prototype">
+		<property name="userServiceImpl">
+			<ref bean="userServiceImpl"/>
+		</property>
+		<property name="tbusers">
+			<ref bean="tbuser"/>
+		</property>
+	</bean>
+	
+	<!-- statistics 数据统计-->
+	<bean id="statisticsServiceImpl" class="com.zjut_java.service.Impl.StatisticsServiceImpl">
+		<property name="tbfunctionDAO">
+			<ref bean="TbfunctionDAO"/>
+		</property>
+		<property name="tbuserhabitDAO">
+			<ref bean="TbuserhabitDAO"/>
+		</property>
+		<property name="ctfunctionDAO">
+			<ref bean="CtfunctionDAO"></ref>
+		</property>
+		<property name="ctproavgDAO">
+			<ref bean="CtproavgDAO"/>
+		</property>
+		<property name="ctcityavgDAO">
+			<ref bean="CtcityavgDAO"></ref>
+		</property>
+		<property name="ctunivavgDAO">
+			<ref bean="CtunivavgDAO"/>
+		</property>
+		<property name="ctquestionsDAO">
+			<ref bean="CtquestionsDAO"/>
+		</property>
+		<property name="ctdetailDAO">
+			<ref bean="CtdetailDAO"/>
+		</property>
+	</bean>
+	
+	<bean id="statisticsAction" class="com.zjut_java.action.StatisticsAction">
+	 	<property name="statisticsServiceImpl">
+			<ref bean="statisticsServiceImpl"/>
+		</property> 
+		
+	</bean>
+	
+	
+	<!-- university -->
+	<bean id="tbuniversity" class="com.zjut_java.model.Tbuniversity">
+	</bean>
+	
+	<bean id="universityAction" class="com.zjut_java.action.UniversityAction">
+		<property name="tbuniversity">
+			<ref bean="tbuniversity"></ref>
+		</property>
+		<property name="universityServiceImpl">
+			<ref bean="universityServiceImpl"/>
+		</property>
+	</bean>
+	
+	<bean id="universityServiceImpl" class="com.zjut_java.service.Impl.UniversityServiceImpl">
+		<property name="tbuniversityDAO">
+			<ref bean="TbuniversityDAO"></ref>
+		</property>
+
+	</bean>
+	
+
+	
+	<!-- 测试所用 -->
+		<bean id="deployService" class="com.zjut_java.service.Impl.TestDeployService">
+		<property name="deployDAO">
+			<ref bean="TbtestdeployDAO"/>
+		</property>
+	</bean>
+	
+	<bean id="CtfunctionDAO"
+		class="com.zjut_java.charts.dao.CtfunctionDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	<!-- 上传 -->
+	<bean id="tbPPT" class="com.zjut_java.model.Tbppt">
+	</bean>
+	
+	<bean id="pptService" class="com.zjut_java.service.Impl.PPTServiceImpl">
+		<property name="tbpptDAO">
+			<ref bean="TbpptDAO"></ref>
+		</property>
+	</bean>
+	
+
+	<bean id="uploadAction" class="com.zjut_java.action.UploadAction">
+		<property name="pptService">
+			<ref bean="pptService"/>
+		</property>
+		<property name="tbPPT">
+			<ref bean="tbPPT"></ref>
+		</property>
+			
+	</bean>
+	<bean id="CtquestionsDAO"
+		class="com.zjut_java.charts.dao.CtquestionsDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="examAction" class="com.zjut_java.action.ExamAcion">
+	</bean>
+	</beans>

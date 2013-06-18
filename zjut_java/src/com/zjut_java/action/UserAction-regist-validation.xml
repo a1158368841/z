@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+  		"-//OpenSymphony Group//XWork Validator 1.0.3//EN"
+  		"http://www.opensymphony.com/xwork/xwork-validator-1.0.3.dtd">
+<validators>
+
+	
+	<field name="tbusers.userId">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message>请输入用户名</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="fieldName">tbusers.userId</param>
+			<param name="trim">true</param>
+			<param name="minLength">6</param>
+			<param name="maxLength">14</param>
+			<message>用户名必须在6-14个字符之间</message>
+		</field-validator>
+	</field>
+	
+	<field name="tbusers.pwd">
+		<field-validator type="stringlength">
+			<param name="fieldName">tbusers.pwd</param>
+			<param name="trim">true</param>
+			<param name="minLength">6</param>
+			<param name="maxLength">20</param>
+			<message>密码长度必须 在6-20个字符之间</message>
+		</field-validator>
+	</field>
+	
+	<!-- <field name="pwd2">
+		<field-validator type="fieldexpression">
+			<param name="expression"><![CDATA[pwd2.equals(tbusers.pwd)]]></param>
+			<message>两次输入的密码不一致</message>
+		</field-validator>
+	</field> -->
+	
+	<!-- <field name="tbusers.birthday">
+		<field-validator type="regex">
+			<param name="trim">true</param>
+			<param name="expression"><![CDATA[(^\d{4}-\d{1,2}-\d{1,2})]]></param>
+			<message>请输入正确的日期格式</message>
+		</field-validator>
+	</field> -->
+	
+	<!-- <field name="tbusers.birthday">
+		    <field-validator type="date">
+            <param name="min">1960-01-01</param>
+            <param name="max">2013-01-01</param>
+            <message>生日必须在${min}和${max}之间</message>
+        </field-validator>
+	</field> -->
+	
+	
+</validators>

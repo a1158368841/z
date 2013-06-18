@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+<constant name="struts.multipart.maxSize" value="20971520" />
+	<constant name="struts.custom.i18n.resources" value="globalMessages" />
+	<constant name="struts.i18n.encoding" value="utf-8" />
+
+	
+<package name="user" extends="struts-default" namespace="/inner">
+
+	<action name="user_*" class="userAction" method="{1}">
+		<result name="view">/WEB-INF/jsp/user/inner/user_detail.jsp</result>
+		<result name="update">/WEB-INF/jsp/user/inner/user_update.jsp</result>
+		<result name="changepwd">/WEB-INF/jsp/user/inner/user_changepwd.jsp</result>
+		<result name="input">login.jsp</result>
+		<result name="login">login.jsp</result>
+		<result name="regist">regist.jsp</result>
+	</action>
+	
+	
+</package>	
+
+<package name="outer" extends="struts-default" namespace="/outer">
+
+	<action name="exam_*" class="examAction" method="{1}">
+		<result name="view">/WEB-INF/jsp/user/outer/testpage.jsp</result>
+	</action>
+	
+	<action name="download_*" class="examAction" method="{1}">
+		<result name="view">/WEB-INF/jsp/user/outer/download.jsp</result>
+	</action>
+	
+</package>
+
+<package name="admin" extends="struts-default" namespace="/admin">
+
+	<action name="admin_login" class="userAction" method="admin_login">
+		<result name="admin">/WEB-INF/jsp/admin/admin_index.jsp</result>
+		<result name="fail">admin_login.jsp</result>
+	</action>
+	
+	<action name="sta_*" class="statisticsAction" method="{1}">
+	</action>
+	
+	<!-- 上传ppt -->
+	<action name="upload" class="uploadAction" method="uploadPpt">
+			<param name="allowTypes">
+				application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation
+			</param>
+			<param name="savePath">/upload/ppt</param>
+			<result>/success.jsp</result>
+			<result name="input">/index.jsp</result>
+		</action>
+	
+	<action name="ppt_select" class="uploadAction" method="finderByExample">
+		<result name="success">success.jsp</result>
+		<result name="fail">fail.jsp</result>
+	</action>
+	
+	<action name="ppt_list" class="uploadAction" method="finderAll">
+		<result name="success">success.jsp</result>
+		<result name="fail">fail.jsp</result>
+	</action>
+	
+	<action name="university_*" class="universityAction" method="{1}">
+		<result name="viewFind">/WEB-INF/jsp/admin/univ_query.jsp</result>
+		<result name="viewRegist">/WEB-INF/jsp/admin/univ_add.jsp</result>
+		<result name="viewUpdate">/WEB-INF/jsp/admin/univ_update.jsp</result>
+		<result name="regist">/WEB-INF/jsp/admin/univ_add.jsp</result>
+		<result name="find">/WEB-INF/jsp/admin/univ_query.jsp</result>
+		<result name="update">/WEB-INF/jsp/admin/univ_update.jsp</result>
+		<result name="detail">/WEB-INF/jsp/admin/univ_detail.jsp</result>
+	</action>
+	
+</package>
+	
+<package name="json" extends="json-default" namespace="/">
+	
+		<action name="jsonss"  class="statisticsAction" method="countByProvince">
+			<result name="list" type="json"></result>
+		</action>
+	</package>
+</struts>
